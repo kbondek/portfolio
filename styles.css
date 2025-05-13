@@ -362,6 +362,10 @@ nav {
   border-radius: 8px;
   
   transition: all 300ms ease;
+
+    @media (width < 1000px) {
+        display: none;
+    }
 }
 
 #image-track > .image:hover {
