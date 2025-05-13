@@ -300,8 +300,12 @@ nav {
 
 .hero-photo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+
+    @media (width < 1000px) {
+        justify-content: center;
+    }
 }
 
 .hero-photo__image {
