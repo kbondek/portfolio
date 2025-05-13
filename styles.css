@@ -255,6 +255,10 @@ nav {
   animation: rotate 20s infinite;
   opacity: 0.2;
   filter: blur(100px);
+
+    @media (width < 1000px) {
+        display: none;
+    }
 }
 
 /************/
