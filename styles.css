@@ -298,15 +298,21 @@ nav {
   }
 }
 
+.hero-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .hero-photo__image {
   position: relative;
-  width: 75%;
+  width: 100%;
   place-self: center;
 
   z-index: 2;
 
   @media (width < 1500px) {
-    width: 60%;
+    width: 50%;
   }
 }
 
