@@ -398,6 +398,8 @@ nav {
 }
 
 .mobile-image:focus-within {
+    scale: 2;
+    z-index: 666;
     filter: grayscale(0);
 }
 
