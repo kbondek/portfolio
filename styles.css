@@ -201,6 +201,8 @@ nav {
 
 .mobile-nav ul {
   list-style: none;
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -208,7 +210,7 @@ nav {
   background-color: #0f0f0fdd;
   backdrop-filter: blur(10px);
   border: 1px solid #ee275a;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   margin: 0;
   padding-inline: 0;
