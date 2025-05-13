@@ -397,7 +397,11 @@ nav {
 
     @media (width < 1000px) {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-area:
+            "one four
+            two five
+            three six";
         gap: 1rem;
     }
 }
@@ -415,6 +419,30 @@ nav {
     scale: 2;
     z-index: 666;
     filter: grayscale(0);
+}
+
+.mobile-image:nth-child(1) {
+    grid-area: one;
+}
+
+.mobile-image:nth-child(2) {
+    grid-area: two;
+}
+
+.mobile-image:nth-child(3) {
+    grid-area: three;
+}
+
+.mobile-image:nth-child(4) {
+    grid-area: four;
+}
+
+.mobile-image:nth-child(5) {
+    grid-area: five;
+}
+
+.mobile-image:nth-child(6) {
+    grid-area: six;
 }
 
 /*************************************************/
