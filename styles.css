@@ -400,7 +400,7 @@ nav {
         /* grid-template-columns: repeat(2, 1fr); */
         grid-template-areas:
             "one four"
-            "two five"
+            "five two"
             "three six";
         gap: 1rem;
     }
