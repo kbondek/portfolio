@@ -39,7 +39,7 @@ body {
   height: 300vh;
   overflow-x: hidden;
   background: var(--background);
-  cursor: url(./assets/kb_cursor.svg), auto;
+  cursor: url(./kb_cursor.svg), auto;
 }
 
 /* 6. Improve media defaults */
