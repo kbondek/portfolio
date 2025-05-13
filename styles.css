@@ -36,8 +36,10 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: var(--background);
   color: var(--text);
-  height: 200vh;
+  height: 300vh;
   overflow-x: hidden;
+  background: var(--background);
+  cursor: url(./assets/kb_cursor.svg), auto;
 }
 
 /* 6. Improve media defaults */
@@ -150,6 +152,16 @@ nav {
 
 .navigation-list ul a {
   transition: all 300ms ease;
+  position: relative;
+}
+
+.navigation-list ul a:hover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: -30px;
+  background: var(--secondary);
 }
 
 .navigation-list ul a:hover {
@@ -171,7 +183,7 @@ nav {
 }
 
 .mobile-nav {
-  position: absolute;
+  position: sticky;
   right: 0;
   top: 0;
   z-index: 1001;
@@ -246,7 +258,7 @@ nav {
 /************/
 
 .hero {
-  background-color: var(--background);
+  /*  background-color: var(--background); */
   height: calc(100vh - 50px);
   padding-block: 3rem;
   gap: 2rem;
@@ -292,18 +304,24 @@ nav {
   place-self: center;
 
   z-index: 2;
+
+  @media (width < 1500px) {
+    width: 60%;
+  }
 }
 
 /* FEATURED */
 
 .featured {
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding-block: 4rem;
 }
 
-.featured img {
+/* .featured img {
   width: 100%;
   filter: grayscale(1);
   border-radius: 1rem;
@@ -321,6 +339,53 @@ nav {
   @media (width < 1000px) {
     scale: 1;  
   }
+} */
+
+/* ******************* PHOTOS ****************** */
+
+#image-track {
+  display: flex;
+  gap: 2vmin;
+  position: absolute;
+  left: 15rem;
+  top: 50%;
+  transform: translate(0%, -50%); 
+  user-select: none; /* -- Prevent image highlighting -- */
+}
+
+#image-track > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+  filter: grayscale(1);
+  border-radius: 8px;
+  
+  transition: all 300ms ease;
+}
+
+#image-track > .image:hover {
+    filter: grayscale(0);
+}
+
+/*************************************************/
+
+.section-header h1 {
+  position: relative;
+}
+
+.section-header h1::before {
+  content: url('./assets/featured_icon.svg');
+  position: absolute;
+  left: -45px;
+  top: 7px;
+  opacity: 0;
+
+  transition: all 300ms ease;
+}
+
+.section-header h1:hover::before {
+  opacity: 1;
 }
 
 .photos {
