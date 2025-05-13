@@ -306,7 +306,7 @@ nav {
 
 .hero-photo__image {
   position: relative;
-  width: 100%;
+  width: 75%;
   place-self: center;
 
   z-index: 2;
