@@ -36,7 +36,6 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: var(--background);
   color: var(--text);
-  height: 300vh;
   overflow-x: hidden;
   background: var(--background);
   cursor: url(./kb_cursor.svg), auto;
@@ -272,7 +271,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  @media (width < 1200px) {
+  @media (width < 786px) {
     height: calc(90vh - 50px);
     grid-template-columns: 1fr;
   }
@@ -331,7 +330,6 @@ nav {
 
 .featured {
   position: relative;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -388,6 +386,83 @@ nav {
 #image-track > .image:hover {
     filter: grayscale(0);
 }
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .75rem;
+}
+
+/** MODAL **/
+
+.modal-button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  filter: grayscale(1);
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: all 300ms ease;
+}
+
+.modal-button:hover {
+  filter: grayscale(0);
+}
+
+.open-button {
+  aspect-ratio: 5 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+
+.modal {
+  padding: 0;
+  width: fit-content;
+  /* max-width: 60vw;
+  min-width: 60vw; */
+  max-height: 90vh;
+  overflow: hidden;
+  margin-inline: auto;
+  margin-block: auto;
+  border: 0;
+  background: 0;
+  border-radius: 8px;
+
+  /* @media (width < 850px) {
+    max-width: 90vw;    
+  } */
+}
+
+.modal img {
+  width: auto;
+  max-height: 90vh;
+  margin-inline: auto;
+  border-radius: 8px;
+}
+
+.modal:nth-child(1) {
+  background-image: url("/birb_1.webp");
+  background-size: cover;
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/**********************************/
 
 .mobile-off {
     display: block;
@@ -487,4 +562,12 @@ nav {
   @media (width < 1000px) {
     grid-template-columns: 1fr;
   }
+}
+
+
+footer {
+    color: #8b8b8b;
+    height: 30px;
+    text-align: center;
+    font-size: .7rem;
 }
