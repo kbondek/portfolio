@@ -398,10 +398,10 @@ nav {
     @media (width < 1000px) {
         display: grid;
         /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-area:
-            "one four
-            two five
-            three six";
+        grid-template-areas:
+            "one four"
+            "two five"
+            "three six";
         gap: 1rem;
     }
 }
