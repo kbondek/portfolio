@@ -385,13 +385,20 @@ nav {
 
     @media (width < 1000px) {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
 }
 
 .mobile-image {
     border-radius: 8px;
+    filter: grayscale(1);
+
+    transition: all 300ms ease;
+}
+
+.mobile-image:focus-within {
+    filter: grayscale(0);
 }
 
 /*************************************************/
