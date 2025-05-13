@@ -71,7 +71,7 @@
             <h1 class="ff-cal">Photographer.</h1>
             <h1 class="ff-cal">Designer.</h1>
             <h1 class="ff-cal">Artist.</h1>
-            <h2 class="ff-raleway">I am <span style="color: #ee275a;">Krzysztof</span> Bondek.</h2>
+            <h2 class="ff-raleway">I am <span style="color: #ee275a; text-decoration: underline;">Krzysztof</span> Bondek.</h2>
         </div>
         <div class="hero-photo">
             <img class="hero-photo__image" src="./kbondek_hero.png" alt="">
@@ -84,10 +84,16 @@
         <h1 class="ff-cal">featured</h1>
         <p style="font-size: .8rem; color: #ee275a;">birdies</p>
         </div>
-        
-        <div class="photos">
-            <img src="./birbs/birb_1.webp" alt=""><img src="./birbs/birb_2.webp" alt=""><img src="./birbs/birb_3.webp" alt=""><img src="./birbs/birb_4.webp" alt=""><img src="./birbs/birb_5.webp" alt=""><img src="./birbs/birb_6.webp" alt="">
-        </div>
+              
+        <!-- PHOTOS -->
+            <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <img class="image" src="./birbs/birb_1.webp" draggable="false" />
+                <img class="image" src="./birbs/birb_2.webp" draggable="false" />
+                <img class="image" src="./birbs/birb_3.webp" draggable="false" />
+                <img class="image" src="./birbs/birb_4.webp" draggable="false" />
+                <img class="image" src="./birbs/birb_5.webp" draggable="false" />
+                <img class="image" src="./birbs/birb_6.webp" draggable="false" />
+            </div>
     </div>
 
     <script>
@@ -115,6 +121,57 @@
             top: `${clientY}px`
         }, { duration: 3000, fill: "forwards" });
         }
+
+        /* --------------------- */
+
+        /* -- Carousel -- */
+
+        const track = document.getElementById("image-track");
+
+        const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
+        const handleOnUp = () => {
+        track.dataset.mouseDownAt = "0";  
+        track.dataset.prevPercentage = track.dataset.percentage;
+        }
+
+        const handleOnMove = e => {
+        if(track.dataset.mouseDownAt === "0") return;
+        
+        const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                maxDelta = window.innerWidth / 2;
+        
+        const percentage = (mouseDelta / maxDelta) * -100,
+                nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+        
+        track.dataset.percentage = nextPercentage;
+        
+        track.animate({
+            transform: `translate(${nextPercentage}%, -50%)`
+        }, { duration: 1200, fill: "forwards" });
+        
+        for(const image of track.getElementsByClassName("image")) {
+            image.animate({
+            objectPosition: `${100 + nextPercentage}% center`
+            }, { duration: 1200, fill: "forwards" });
+        }
+        }
+
+        /* -- Had to add extra lines for touch events -- */
+
+        window.onmousedown = e => handleOnDown(e);
+
+        window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+        window.onmouseup = e => handleOnUp(e);
+
+        window.ontouchend = e => handleOnUp(e.touches[0]);
+
+        window.onmousemove = e => handleOnMove(e);
+
+        window.ontouchmove = e => handleOnMove(e.touches[0]);
+
     </script>
 </body>
 </html>
