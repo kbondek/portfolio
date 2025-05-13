@@ -375,7 +375,7 @@ nav {
 }
 
 .section-header h1::before {
-  content: url('./assets/featured_icon.svg');
+  content: url('./featured_icon.svg');
   position: absolute;
   left: -45px;
   top: 7px;
