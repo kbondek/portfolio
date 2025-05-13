@@ -368,6 +368,28 @@ nav {
     filter: grayscale(0);
 }
 
+.mobile-off {
+    display: block;
+
+    @media (width < 1000px) {
+        display: none;
+    }
+}
+
+.mobile-on {
+    display: none;
+
+    @media (width < 1000px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+.mobile-image {
+    border-radius: 8px;
+}
+
 /*************************************************/
 
 .section-header h1 {
