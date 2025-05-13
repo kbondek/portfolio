@@ -402,13 +402,19 @@ nav {
 
     @media (width < 1000px) {
         display: grid;
-        /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-areas:
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-areas:
             "one four"
             "five two"
-            "three six";
+            "three six"; */
         gap: 1rem;
     }
+}
+
+.mobile-on__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .mobile-image {
@@ -426,7 +432,7 @@ nav {
     filter: grayscale(0);
 }
 
-.mobile-image:nth-child(1) {
+/* .mobile-image:nth-child(1) {
     grid-area: one;
 }
 
@@ -451,7 +457,7 @@ nav {
 .mobile-image:nth-child(6) {
     grid-area: six;
     transform: translateY(-75px);
-}
+} */
 
 /*************************************************/
 
