@@ -431,6 +431,7 @@ nav {
 
 .mobile-image:nth-child(3) {
     grid-area: three;
+    transform: translateY(-75px);
 }
 
 .mobile-image:nth-child(4) {
@@ -439,10 +440,12 @@ nav {
 
 .mobile-image:nth-child(5) {
     grid-area: five;
+    transform: translateY(-75px);
 }
 
 .mobile-image:nth-child(6) {
     grid-area: six;
+    transform: translateY(-75px);
 }
 
 /*************************************************/
